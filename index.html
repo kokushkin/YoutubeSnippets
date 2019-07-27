@@ -93,7 +93,12 @@
 			if(videoParameters == undefined || videoParameters.videoId == undefined) {
 					videoParameters =  parseImputStartEndParametersFromYoutube('https://youtu.be/DPGDAZyQ44k?t=147', 'https://youtu.be/DPGDAZyQ44k?t=150');
 			}
-			
+			else {
+				let startAddress = `https://youtu.be/${videoParameters.videoId}?t=${videoParameters.startTimeSec}`;
+				let endAddress = `https://youtu.be/${videoParameters.videoId}?t=${videoParameters.endTimeSec}`;
+				document.getElementById("start").value = startAddress;
+				document.getElementById("end").value = endAddress;
+			}
 
 
 			
