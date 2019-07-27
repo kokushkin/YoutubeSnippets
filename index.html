@@ -14,31 +14,37 @@
 
     <script>
 
-			const startAddress = 'https://youtu.be/DPGDAZyQ44k?t=147';
-			const endAddress = 'https://youtu.be/DPGDAZyQ44k?t=150';
+			function parseImputStartEndAddress(startAddress, endAddress) {
 
-			const reg = /https:\/\/youtu\.be\/(.+?)\?t=(.+)/;
-			const startMatch = startAddress.match(reg);
-			const endMatch = endAddress.match(reg);
-			const videoId = startMatch[1];
-			const startTimeSec = startMatch[2];
-			const endTimeSec = endMatch[2];
-			console.log(videoId);
-			console.log(startTimeSec);
-			console.log(endTimeSec);
+				const reg = /https:\/\/youtu\.be\/(.+?)\?t=(.+)/;
+				const startMatch = startAddress.match(reg);
+				const endMatch = endAddress.match(reg);
+				const videoId = startMatch[1];
+				const startTimeSec = startMatch[2];
+				const endTimeSec = endMatch[2];
+				console.log(videoId);
+				console.log(startTimeSec);
+				console.log(endTimeSec);
+
+				return {
+					videoId,
+					startTimeSec,
+					endTimeSec
+				}
+			}
+
+    </script>
+		<script>
 
 
+			const videoParameters =  parseImputStartEndAddress('https://youtu.be/DPGDAZyQ44k?t=147', 'https://youtu.be/DPGDAZyQ44k?t=150');
 
 
-      // 2. This code loads the IFrame Player API code asynchronously.
+			      // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-			 
-
 
 
       // 3. This function creates an <iframe> (and YouTube player)
@@ -46,8 +52,8 @@
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          videoId: videoId,
-					playerVars: { 'autoplay': 1, 'start': startTimeSec },
+          videoId: videoParameters.videoId,
+					playerVars: { 'autoplay': 1, 'start': videoParameters.startTimeSec },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -66,15 +72,16 @@
       var seeked = false;
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !seeked) {
-          setTimeout(seekBack, (endTimeSec - startTimeSec) * 1000);
+          setTimeout(seekBack, (videoParameters.endTimeSec - videoParameters.startTimeSec) * 1000);
           seeked = true;
         }
       }
       function seekBack() {
-				player.seekTo(startTimeSec);
+				player.seekTo(videoParameters.startTimeSec);
 				seeked = false;
       }
-    </script>
+		</script>
+
   </body>
 
 </body>
