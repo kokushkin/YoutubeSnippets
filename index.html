@@ -14,7 +14,8 @@
 
     <script>
 
-			function parseImputStartEndAddress(startAddress, endAddress) {
+			function parseImputStartEndParametersFromYoutube(startAddress, endAddress) {
+				console.log("Parse parameters from start and end from youtube addresses");
 
 				const reg = /https:\/\/youtu\.be\/(.+?)\?t=(.+)/;
 				const startMatch = startAddress.match(reg);
@@ -33,11 +34,33 @@
 				}
 			}
 
+			function parseImputStartEndParametersFromYoutubeAddress(address) {
+				console.log("Parse parameters from start and end from browser address");
+				// example https://10r7w.csb.app/?videoId=asdasd&start=149&end=150
+				const reg = /https:\/\/10r7w\.csb\.app\/\?videoId=(.+?)&start=(.+?)&end=(.+)/;
+				const match = address.match(reg);
+				const videoId = match[1];
+				const startTimeSec = match[2];
+				const endTimeSec = match[3];
+				
+				return {
+					videoId,
+					startTimeSec,
+					endTimeSec
+				}
+			}
+
     </script>
 		<script>
 
+			let videoParameters =  parseImputStartEndParametersFromYoutubeAddress(location.href);
 
-			const videoParameters =  parseImputStartEndAddress('https://youtu.be/DPGDAZyQ44k?t=147', 'https://youtu.be/DPGDAZyQ44k?t=150');
+			if(videoParameters.videoId == undefined) {
+					videoParameters =  parseImputStartEndParametersFromYoutube('https://youtu.be/DPGDAZyQ44k?t=147', 'https://youtu.be/DPGDAZyQ44k?t=150');
+			}
+
+
+			
 
 
 			      // 2. This code loads the IFrame Player API code asynchronously.
