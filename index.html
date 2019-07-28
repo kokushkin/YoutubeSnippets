@@ -144,7 +144,8 @@ videoId=${videoParameters.videoId}\
       // 4. The API will call this function when the video player is ready.
 			var firstTimePlaying = true;
       function onPlayerReady(event) {
-					event.target.playVideo();
+					//event.target.playVideo();
+					player.seekTo(videoParameters.startTimeSec);
 					firstTimePlaying = false;
       }
 
