@@ -27,7 +27,7 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-12">
-						<h4 id="resultReference">sadasdasdasd</h4>
+						<h4 id="resultReference">generated reference place</h4>
 				</div>
 			</div>
 
@@ -39,19 +39,12 @@
 			</div>
 		</div>
     <script>
-			function generateReference(e) {
-				e.preventDefault();
-				let startAddress = document.getElementById("start").value;
-				let endAddress = document.getElementById("end").value;
-				let videoParameters = parseImputStartEndParametersFromYoutube(startAddress, endAddress);
-
-				document.getElementById("resultReference").innerHTML = 
-				`https://10r7w.csb.app/?
-				videoId=${videoParameters.videoId}
-				&start=${videoParameters.startTimeSec}
-				&end=${videoParameters.endTimeSec}`;
+			function generateReferenceByVideoParameters(videoParameters)  {				
+				return `https://10r7w.csb.app/?\
+videoId=${videoParameters.videoId}\
+&start=${videoParameters.startTimeSec}\
+&end=${videoParameters.endTimeSec}`;
 			}
-
 
 			function parseImputStartEndParametersFromYoutube(startAddress, endAddress) {
 				console.log("Parse parameters from start and end from youtube addresses");
@@ -72,6 +65,18 @@
 					endTimeSec
 				}
 			}
+
+			function generateReference(e) {
+				e.preventDefault();
+
+				document.getElementById("resultReference").innerHTML = 
+				generateReferenceByVideoParameters(
+					parseImputStartEndParametersFromYoutube(
+						document.getElementById("start").value, document.getElementById("end").value));
+					
+			}
+
+
 
 			function parseImputStartEndParametersFromYoutubeAddress(address) {
 				console.log("Parse parameters from start and end from browser address");
