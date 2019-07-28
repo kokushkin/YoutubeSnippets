@@ -9,20 +9,27 @@
 
 <body>
 
-		<div class="container">
+		<div class="container mt-2">
   		<div class="row">
 				<div class="col-12">
-						<form onSubmit="generateReference(event)">
-							<div class="form-group">
-								<label for="start">Start</label>
-								<input type="url" class="form-control" id="start"  placeholder="https://youtu.be/DPGDAZyQ44k?t=147" value="https://youtu.be/DPGDAZyQ44k?t=147">
-							</div>
-							<div class="form-group">
-								<label for="end">End</label>
-								<input type="url" class="form-control" id="end" placeholder="https://youtu.be/DPGDAZyQ44k?t=150" value="https://youtu.be/DPGDAZyQ44k?t=150">
-							</div>
-							<button type="submit" class="btn btn-primary">Get reference</button>
+						<form onSubmit="generateReference(event)" class="form-row">
+						
+								<div class="col-5 input-group px-2">
+									<div class="input-group-prepend">
+          					<span class="input-group-text">start</span>
+        					</div>
+									<input type="url" class="form-control" id="start"  placeholder="https://youtu.be/DPGDAZyQ44k?t=147" value="https://youtu.be/DPGDAZyQ44k?t=147">								
+								</div>
+								<div class="col-5 input-group px-2">
+									<div class="input-group-prepend">
+          					<span class="input-group-text">end</span>
+        					</div>
+									<input type="url" class="form-control" id="end" placeholder="https://youtu.be/DPGDAZyQ44k?t=150" value="https://youtu.be/DPGDAZyQ44k?t=150">
+								</div>
+								<button type="submit" class="btn btn-primary col-2">Get reference</button>
+							
 						</form>
+						
 					</div>
 			</div>
 			<div class="row mt-4">
@@ -34,7 +41,7 @@
 			<div class="row mt-4">
 				<div class="col-12">
 						<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    				<div id="player"></div>
+						<div id="player" class="container-fluid"></div>
 				</div>
 			</div>
 		</div>
@@ -132,6 +139,7 @@ videoId=${videoParameters.videoId}\
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
+					height: '720',
           videoId: videoParameters.videoId,
 					playerVars: { 'autoplay': 1, 'start': videoParameters.startTimeSec },
         events: {
