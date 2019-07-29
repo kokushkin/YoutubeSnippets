@@ -207,8 +207,8 @@ videoId=${videoParameters.videoId}\
 		      // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
-			$(document).ready(function () {
-        player = new YT.Player('player', {
+			$(window).on('load', function() {
+				 player = new YT.Player('player', {
 					height: '720',
           videoId: videoParameters.videoId,
 					playerVars: { 'autoplay': 1, 'start': videoParameters.startTimeSec },
@@ -217,7 +217,6 @@ videoId=${videoParameters.videoId}\
 							'onStateChange': onPlayerStateChange
 						}
 					});
-
 			});
 		</script>
 
