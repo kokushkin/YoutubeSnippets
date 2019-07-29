@@ -5,6 +5,7 @@
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,19 +15,19 @@
 				<div class="col-12">
 						<form class="form-row" onSubmit="generateReference(event)" >
 						
-								<div class="col-5 input-group px-2">
+								<div class="col-12 col-lg-5 input-group px-2 pb-2">
 									<div class="input-group-prepend">
           					<span class="input-group-text">start</span>
         					</div>
 									<input type="url" class="form-control" id="start"  placeholder="https://youtu.be/DPGDAZyQ44k?t=147" value="https://youtu.be/DPGDAZyQ44k?t=147">								
 								</div>
-								<div class="col-5 input-group px-2">
+								<div class="col-12 col-lg-5 input-group px-2 pb-2">
 									<div class="input-group-prepend">
           					<span class="input-group-text">end</span>
         					</div>
 									<input type="url" class="form-control" id="end" placeholder="https://youtu.be/DPGDAZyQ44k?t=150" value="https://youtu.be/DPGDAZyQ44k?t=150">
 								</div>
-								<button type="submit" class="btn btn-primary col-2">Get reference</button>
+								<button type="submit" class="btn btn-success col-12 col-lg-2">Get reference</button>
 							
 						</form>
 						
@@ -38,7 +39,8 @@
 							<div class="col-12 input-group input-group-lg">
 								<input type="url" class="form-control" id="resultReference"  placeholder="generated reference">								
 								<div class="input-group-append">
-    							<button class="input-group-text">copy</button>
+    							<button class="input-group-text fa fa-copy text-success">
+									</button>
   							</div>
 							</div>
 
