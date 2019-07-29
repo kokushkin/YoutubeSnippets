@@ -12,7 +12,7 @@
 		<div class="container mt-2">
   		<div class="row">
 				<div class="col-12">
-						<form onSubmit="generateReference(event)" class="form-row">
+						<form class="form-row" onSubmit="generateReference(event)" >
 						
 								<div class="col-5 input-group px-2">
 									<div class="input-group-prepend">
@@ -34,7 +34,16 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-12">
-						<h4 id="resultReference">generated reference place</h4>
+						<form class="form-row" onSubmit="copyReference(event)" >
+							<div class="col-12 input-group input-group-lg">
+								<input type="url" class="form-control" id="resultReference"  placeholder="generated reference">								
+								<div class="input-group-append">
+    							<button class="input-group-text">copy</button>
+  							</div>
+							</div>
+
+						</form>
+						
 				</div>
 			</div>
 
@@ -79,10 +88,33 @@ videoId=${videoParameters.videoId}\
 				let newVideoParameters = parseImputStartEndParametersFromYoutube(
 						document.getElementById("start").value, document.getElementById("end").value);
 
-				document.getElementById("resultReference").innerHTML = 
+				document.getElementById("resultReference").value = 
 					generateReferenceByVideoParameters(newVideoParameters);	
 
 				refreshPlayer(newVideoParameters);	
+			}
+
+			function copyReference(e) {
+				e.preventDefault();
+
+				copyStringToClipboard(document.getElementById("resultReference").value);
+			}
+
+			function copyStringToClipboard (str) {
+				// Create new element
+				var el = document.createElement('textarea');
+				// Set value (string to be copied)
+				el.value = str;
+				// Set non-editable to avoid focus and move outside of view
+				el.setAttribute('readonly', '');
+				el.style = {position: 'absolute', left: '-9999px'};
+				document.body.appendChild(el);
+				// Select text inside element
+				el.select();
+				// Copy text to clipboard
+				document.execCommand('copy');
+				// Remove temporary element
+				document.body.removeChild(el);
 			}
 
 
@@ -123,7 +155,7 @@ videoId=${videoParameters.videoId}\
 				document.getElementById("end").value = endAddress;
 			}
 
-			document.getElementById("resultReference").innerHTML = 
+			document.getElementById("resultReference").value = 
 					generateReferenceByVideoParameters(videoParameters);	
 
 
