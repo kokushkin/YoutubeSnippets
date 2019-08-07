@@ -28,7 +28,7 @@ async function handleRequest(request) {
 
     // Modify it.
     const modified = text.replace(
-      '<meta property="og:title" content="This is supposed to be replaced on the Edge with bunch of meta tags" />',
+      '<meta property="og:title" content="This is supposed to be replaced on the Edge with bunch of meta tags">',
       metatags
     );
     console.log("Page with metatags", modified);
