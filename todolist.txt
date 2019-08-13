@@ -1,0 +1,17 @@
+
+
+- check cache with cloudflare and netlify
+- fix mobile view
+- fix  to start a video automatically (in edge it works). Watch console bugs in chrome browser
+- make youtube video how to use it (for users and developers)
+- site title and icon
+
+release v1.0
+
+- add custom title and descriptions
+- fix 1101 error in russia (logs don't work with Free Website)
+- Facebook group to collect funny videos
+- make video chains (zip chains in parameters) 
+- donate functionality (on github?)
+
+release v2.0
