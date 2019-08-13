@@ -1,15 +1,17 @@
 
 
-- check cache with cloudflare and netlify
+- check cache with cloudflare and netlify +
+- site title +
 - fix mobile view
-- fix  to start a video automatically (in edge it works). Watch console bugs in chrome browser
+- fix to start a video automatically (in edge it works). Watch console bugs in chrome browser
 - make youtube video how to use it (for users and developers)
-- site title and icon
+
 - fix Facebook issue (when you click from Facebook it's appand parameter)
 - prevend script injection
 
 release v1.0
 
+- site icon
 - add custom title and descriptions
 - fix 1101 error in russia (logs don't work with Free Website)
 - Facebook group to collect funny videos
