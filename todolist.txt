@@ -14,7 +14,7 @@ release v1.0
 
 - site icon
 - add custom title and descriptions
-
+- make preview image the same like a beginning of a video
 - Facebook group to collect funny videos
 - make video chains (zip chains in parameters) 
 - donate functionality (on github?)
