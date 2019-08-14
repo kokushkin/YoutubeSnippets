@@ -4,8 +4,7 @@
 - site title +
 - fix 1101 error in russia (logs don't work with Free Website) 
 and from mobile internet +
-
-- fix mobile view
+- fix mobile view+
 - fix Facebook issue (when you click from Facebook it's appand parameter)
 - fix to start a video automatically (in edge it works). Watch console bugs in chrome browser
 - make youtube video how to use it (for users and developers)

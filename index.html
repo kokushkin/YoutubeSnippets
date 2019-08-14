@@ -19,6 +19,23 @@
 	<meta property="og:type" content="video" />
 	<meta property="og:url" content="https://10r7w.csb.app/?videoId=QQwnT1jqxw8&start=309&end=311">
 	<meta property="og:video" content="https://www.youtube.com/watch?v=QQwnT1jqxw8" /> -->
+
+	<style>
+		.iframe-container{
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%; 
+			height: 0;
+		}
+		.iframe-container iframe{
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -64,8 +81,10 @@
 
 			<div class="row mt-4">
 				<div class="col-12">
-						<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-						<div id="player" class="container-fluid"></div>
+						<div class="iframe-container">
+							<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+							<div id="player" class="container-fluid"></div>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -223,8 +242,7 @@ videoId=${videoParameters.videoId}\
       //    after the API code downloads.
       var player;
 			$(window).on('load', function() {
-				 player = new YT.Player('player', {
-					height: '720',
+				 player = new YT.Player('player', {		
           videoId: videoParameters.videoId,
 					playerVars: { 'autoplay': 1, 'start': videoParameters.startTimeSec },
 					events: {
