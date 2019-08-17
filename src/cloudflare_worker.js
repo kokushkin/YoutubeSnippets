@@ -47,7 +47,7 @@ async function handleRequest(request) {
 function parseImputStartEndParametersFromYoutubeAddress(address) {
   console.log("Parse parameters from start and end from browser address");
   // example https://10r7w.csb.app/?videoId=DPGDAZyQ44k&start=147&end=150
-  const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+)/;
+  const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+?)($|\&)/;
   const match = address.match(reg);
 
   if (match == undefined) return undefined;

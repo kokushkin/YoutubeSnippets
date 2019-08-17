@@ -183,7 +183,7 @@ videoId=${videoParameters.videoId}\
 			function parseImputStartEndParametersFromYoutubeAddress(address) {
 				console.log("Parse parameters from start and end from browser address");
 				// example https://10r7w.csb.app/?videoId=oiNtnehlaTo&start=1454.5&end=1459.5
-				const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+)/;
+				const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+?)($|\&)/;
 				const match = address.match(reg);
 
 				if(match == undefined)
