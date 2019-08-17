@@ -7,46 +7,54 @@ addEventListener("fetch", event => {
  * @param {Request} request
  */
 async function handleRequest(request) {
-  console.log("Got request", request);
+  try {
+    //console.log("Got request", request);
 
-  let url = new URL(request.url);
+    let url = new URL(request.url);
 
-  const videoParams = parseImputStartEndParametersFromYoutubeAddress(
-    request.url
-  );
-  console.log("Video params", videoParams);
+    //console.log("Request.url", request.url);
 
-  if (videoParams !== undefined) {
-    const response = await fetch(url.origin);
-    console.log("Got response", response);
-
-    const metatags = generateMetaTags(videoParams);
-    console.log("Metatags", metatags);
-
-    // Read response body.
-    const text = await response.text();
-
-    // Modify it.
-    const modified = text.replace(
-      '<meta property="og:title" content="This is supposed to be replaced on the Edge with bunch of meta tags">',
-      metatags
+    const videoParams = parseImputStartEndParametersFromYoutubeAddress(
+      request.url
     );
-    console.log("Page with metatags", modified);
+    //console.log("Video params", videoParams);
 
-    // Return modified response.
-    return new Response(modified, {
-      status: response.status,
-      statusText: response.statusText,
-      headers: response.headers
-    });
-  } else {
-    return fetch(request);
+    if (videoParams !== undefined) {
+      console.log("url.origin", url.origin);
+
+      const response = await fetch(url.origin);
+      //console.log("Got response", response);
+
+      const metatags = generateMetaTags(videoParams);
+      //console.log("Metatags", metatags);
+
+      // Read response body.
+      const text = await response.text();
+
+      // Modify it.
+      const modified = text.replace(
+        '<meta property="og:title" content="This is supposed to be replaced on the Edge with bunch of meta tags">',
+        metatags
+      );
+      //console.log("Page with metatags", modified);
+
+      // Return modified response.
+      return new Response(modified, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers
+      });
+    } else {
+      return await fetch(request);
+    }
+  } catch (ex) {
+    return new Response(ex.toString());
   }
 }
 
 function parseImputStartEndParametersFromYoutubeAddress(address) {
-  console.log("Parse parameters from start and end from browser address");
-  // example https://10r7w.csb.app/?videoId=DPGDAZyQ44k&start=147&end=150
+  //console.log("Parse parameters from start and end from browser address");
+  // example https://********/?videoId=DPGDAZyQ44k&start=147&end=150
   const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+?)($|\&)/;
   const match = address.match(reg);
 
@@ -68,13 +76,13 @@ function generateMetaTags(videoParams) {
 				<meta property="og:title" content="Youtube snippet from ${
           videoParams.startTimeSec
         } sec to ${videoParams.endTimeSec} sec." />
-				<meta property="og:description" content="Test description just to see how it will look like. Not it's not automatically generated. I hope it'll look perfect. When we are going to regenerate it with edge computing. So keep watching." />
+				<meta property="og:description" content="Test description just to see how it will look like. Not it's not automatically generated. I hope it'll look perfect. We  generate it with edge computing. So keep watching." />
 				<meta property="og:image" content="https://img.youtube.com/vi/${
           videoParams.videoId
         }/0.jpg" />
 				<meta property="og:image:width" content="200" />
 				<meta property="og:type" content="video" />
-				<meta property="og:url" content="https://10r7w.csb.app/?videoId=${
+				<meta property="og:url" content="https://loopedvideoreference.com/?videoId=${
           videoParams.videoId
         }&start=${videoParams.startTimeSec}&end=${videoParams.endTimeSec}">
 				<meta property="og:video" content="https://www.youtube.com/watch?v=${
