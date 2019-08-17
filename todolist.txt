@@ -10,15 +10,15 @@ and from mobile internet +
 - fix Facebook issue (when you click from Facebook it's appand parameter)+
 - change Cloudflare script (with fixed regular expression)+
 
-- prevent script injection
-- Facebook group to collect funny videos
-- fix to start a video automatically (in edge it works). Watch console bugs in chrome browser
 
+- Facebook group to collect funny videos
 - make youtube video how to use it (for users and developers)
 
 
 release v1.0
-
+- take title and description of video from youtube, just add time interval in the begining
+- fix to start a video automatically (in edge it works). Watch console bugs in chrome browser +- the bug in console have another meaning but I am not sure
+- prevent script injection +- I couldn't do it..but it could be possible
 - site icon
 - add custom title and descriptions
 - make preview image the same like a beginning of a video
