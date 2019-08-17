@@ -5,11 +5,11 @@
 - fix 1101 error in russia (logs don't work with Free Website) 
 and from mobile internet +
 - fix mobile view+
+- button for help with youtube video references+
+- change this nasty video with red flight+
 
-- button for help with youtube video references
 - make youtube video how to use it (for users and developers)
 - Facebook group to collect funny videos
-- change this nasty video with red flight
 - fix Facebook issue (when you click from Facebook it's appand parameter)
 - fix to start a video automatically (in edge it works). Watch console bugs in chrome browser
 - prevend script injection

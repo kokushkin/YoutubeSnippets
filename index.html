@@ -66,13 +66,13 @@
 									<div class="input-group-prepend">
           					<span class="input-group-text">start</span>
         					</div>
-									<input type="url" class="form-control" id="start"  placeholder="https://youtu.be/DPGDAZyQ44k?t=147" value="https://youtu.be/DPGDAZyQ44k?t=147">								
+									<input type="url" class="form-control" id="start"  placeholder="https://youtu.be/oiNtnehlaTo?t=1454.5" value="https://youtu.be/oiNtnehlaTo?t=1454.5">								
 								</div>
 								<div class="col-12 col-lg-5 input-group px-2 pb-2">
 									<div class="input-group-prepend">
           					<span class="input-group-text">end</span>
         					</div>
-									<input type="url" class="form-control" id="end" placeholder="https://youtu.be/DPGDAZyQ44k?t=150" value="https://youtu.be/DPGDAZyQ44k?t=150">
+									<input type="url" class="form-control" id="end" placeholder="https://youtu.be/oiNtnehlaTo?t=1459.5" value="https://youtu.be/oiNtnehlaTo?t=1459.5">
 								</div>
 								<button type="submit" class="btn btn-success col-12 col-lg-2">Get reference</button>
 							
@@ -182,7 +182,7 @@ videoId=${videoParameters.videoId}\
 
 			function parseImputStartEndParametersFromYoutubeAddress(address) {
 				console.log("Parse parameters from start and end from browser address");
-				// example https://10r7w.csb.app/?videoId=DPGDAZyQ44k&start=147&end=150
+				// example https://10r7w.csb.app/?videoId=oiNtnehlaTo&start=1454.5&end=1459.5
 				const reg = /(.+?)\/\?videoId=(.+?)&start=(.+?)&end=(.+)/;
 				const match = address.match(reg);
 
