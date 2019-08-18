@@ -9,9 +9,8 @@ and from mobile internet +
 - change this nasty video with red flight+
 - fix Facebook issue (when you click from Facebook it's appand parameter)+
 - change Cloudflare script (with fixed regular expression)+
+- Facebook group to collect funny videos+
 
-
-- Facebook group to collect funny videos
 - make youtube video how to use it (for users and developers)
 
 
