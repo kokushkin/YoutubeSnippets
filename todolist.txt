@@ -11,8 +11,7 @@ and from mobile internet +
 - change Cloudflare script (with fixed regular expression)+
 - Facebook group to collect funny videos+
 - youtube list video reference usage+
-
-- make youtube video how to use it (for users and developers)
+- make youtube video how to use it (for users and developers)+
 
 
 release v1.0
