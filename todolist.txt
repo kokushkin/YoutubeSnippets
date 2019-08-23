@@ -17,7 +17,9 @@ and from mobile internet +
 
 release v1.0
 
-
+- In mobile YouTube you can't take reference on specific time. So, let's do hh:mm:ss on your site
+- use affilate programs cloudflare, netlify
+- donate on github
 - take title and description of video from youtube, just add time interval at the begining
 - fix to start a video automatically (in edge it works). Watch console bugs in chrome browser +- the bug in console have another meaning but I am not sure
 - prevent script injection +- I couldn't do it..but it could be possible
